@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Rainer Rillke"
+        ]
+    },
+    "mwe-mh-credits-desc": "Extends MediaWiki's media handling capabilities with [//en.wikipedia.org/wiki/Chemical_table_file chemical table files]"
+}

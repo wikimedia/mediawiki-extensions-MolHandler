@@ -1,0 +1,8 @@
+{
+    "@metadata": {
+        "authors": [
+            "Rainer Rillke"
+        ]
+    },
+    "mwe-mh-credits-desc": "Message describing the extension displayed on [[Special:Version]]."
+}
