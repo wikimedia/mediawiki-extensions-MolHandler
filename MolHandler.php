@@ -22,8 +22,6 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	exit( 1 );
 }
 
-/* Configuration */
-
 // Credits
 $wgExtensionCredits['media'][] = array(
 	'path' => __FILE__,
@@ -37,10 +35,28 @@ $wgExtensionCredits['media'][] = array(
 	'license-name' => 'GPL-2.0+',
 );
 
-$wgMolHandlerDir = __DIR__;
-$wgMessagesDirs['MolHandler'] = $wgMolHandlerDir . '/i18n';
+/* Configuration */
+$wgMolHandlerDir = __DIR__ . '/';
+$wgMessagesDirs['MolHandler'] = $wgMolHandlerDir . 'i18n';
+
+# Converter. Note that babel is not yet able to convert reactions
+$wgMolConverterPath = '/usr/bin';
+$wgMolConvertCommands = array(
+	'babel' => array(
+		'command' => '$path/babel -i$format $input $output',
+		'supportedFormats' => array( 'mol' )
+	),
+	'indigo' => array(
+		'command' => '$path/indigo-depict $input $output',
+		'supportedFormats' => array( 'mol', 'rxn' )
+	),
+);
+$wgMolConverter = 'indigo';
+
+$wgMediaHandlers['chemical/x-mdl-molfile'] = 'MolMediaHandler';
+$wgMediaHandlers['chemical/x-mdl-rxnfile'] = 'RxnMediaHandler';
 
 # Require modules
-$wgAutoloadClasses += array(
-	// Hooks ...
-);
+$wgAutoloadClasses['MolHandler']      = $wgMolHandlerDir . 'MolHandler_body.php';
+$wgAutoloadClasses['MolMediaHandler'] = $wgMolHandlerDir . 'MolMediaHandler.php';
+$wgAutoloadClasses['RxnMediaHandler'] = $wgMolHandlerDir . 'RxnMediaHandler.php';
