@@ -56,7 +56,17 @@ $wgMolConverter = 'indigo';
 $wgMediaHandlers['chemical/x-mdl-molfile'] = 'MolMediaHandler';
 $wgMediaHandlers['chemical/x-mdl-rxnfile'] = 'RxnMediaHandler';
 
-# Require modules
+# Register modules
+$wgAutoloadClasses['MolHandlerHooks'] = $wgMolHandlerDir . 'MolHandlerHooks.php';
+$wgAutoloadClasses['MolHandlerMime']  = $wgMolHandlerDir . 'MolHandler.mime.php';
 $wgAutoloadClasses['MolHandler']      = $wgMolHandlerDir . 'MolHandler_body.php';
 $wgAutoloadClasses['MolMediaHandler'] = $wgMolHandlerDir . 'MolMediaHandler.php';
 $wgAutoloadClasses['RxnMediaHandler'] = $wgMolHandlerDir . 'RxnMediaHandler.php';
+
+# Hook-up MIME type detection
+$wgHooks['MimeMagicInit'][]                 = 'MolHandlerMime::onMimeMagicInit';
+$wgHooks['MimeMagicImproveFromExtension'][] = 'MolHandlerMime::onMimeMagicImproveFromExtension';
+$wgHooks['MimeMagicGuessFromContent'][]     = 'MolHandlerMime::onMimeMagicGuessFromContent';
+
+# Hook-up tests
+$wgHooks['UnitTestsList'][] = 'MolHandlerHooks::onUnitTestsList';
