@@ -44,11 +44,16 @@ $wgMolConverterPath = '/usr/bin';
 $wgMolConvertCommands = array(
 	'babel' => array(
 		'command' => '$path/babel -i$format $input $output',
-		'supportedFormats' => array( 'mol' )
+		'supportedFormats' => array( 'mol' ),
+		'memory' => 204800
 	),
 	'indigo' => array(
 		'command' => '$path/indigo-depict $input $output',
-		'supportedFormats' => array( 'mol', 'rxn' )
+		'supportedFormats' => array( 'mol', 'rxn' ),
+		// 200 MiB - indigo-depict required about 40 MiB with all libraries in
+		// tests but sometimes seems to need much more; no errors with 200 MiB
+		// on the test wiki so far; See Bug 67074.
+		'memory' => 204800
 	),
 );
 $wgMolConverter = 'indigo';

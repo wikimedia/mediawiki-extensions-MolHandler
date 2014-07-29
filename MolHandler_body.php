@@ -215,12 +215,10 @@ abstract class MolHandler extends SvgHandler {
 		global $wgMolConverterPath;
 
 		$err = false;
+		$converter = $this->getMolConverter();
 		$retval = '';
 		$limits = array(
-				// 200 MiB - indigo-depict required about 40 MiB with all libraries in
-				// tests but sometimes seems to need much more; no errors with 200 MiB
-				// on the test wiki so far; See Bug 67074.
-				'memory' => 204800
+				'memory' => $converter['memory']
 		);
 
 		if ( !file_exists( $svgPath ) ) {
@@ -234,7 +232,7 @@ abstract class MolHandler extends SvgHandler {
 						wfEscapeShellArg( $srcPath ),
 						wfEscapeShellArg( $svgPath )
 				),
-				$this->getMolConverter()
+				$converter['command']
 			);
 
 			wfProfileIn( 'molconvert' );
@@ -255,7 +253,7 @@ abstract class MolHandler extends SvgHandler {
 	/**
 	 * Get the command for the default molconverter
 	 *
-	 * @return string Mol converter plus parameters
+	 * @return array Mol converter
 	 */
 	private function getMolConverter() {
 		global $wgMolConvertCommands, $wgMolConverter;
@@ -267,7 +265,7 @@ abstract class MolHandler extends SvgHandler {
 			);
 		}
 
-		return $wgMolConvertCommands[$wgMolConverter]['command'];
+		return $wgMolConvertCommands[$wgMolConverter];
 	}
 
 	/**
