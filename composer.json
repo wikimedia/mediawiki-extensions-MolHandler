@@ -1,0 +1,32 @@
+{
+	"name": "mediawiki/extensions-molhandler",
+	"description": "The MolHandler MediaWiki extension allows to display Chemical table files in wiki pages, using the same syntax as for image files.",
+	"keywords": ["mediawiki", "chemical table files", "mol", "rxn", "media handler"],
+	"homepage": "https://www.mediawiki.org/wiki/Extension:MolHandler",
+	"authors": [
+		{
+			"name": "Rainer Rillke",
+			"homepage": "https://rillke.com",
+			"role": "Product manager"
+		},
+		{
+			"name": "MediaWiki Community",
+			"homepage": "https://www.mediawiki.org/wiki/Special:Version/Credits"
+		}
+	],
+	"license": "GPL-2.0+",
+	"support": {
+		"issues": "https://phabricator.wikimedia.org/tag/mediawiki-extensions-molhandler/"
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.9.2",
+		"mediawiki/mediawiki-codesniffer": "0.6.0"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpcs -p -s"
+		],
+		"fix": "phpcbf"
+	}
+}

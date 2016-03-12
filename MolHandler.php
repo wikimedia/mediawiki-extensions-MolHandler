@@ -23,17 +23,17 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 }
 
 // Credits
-$wgExtensionCredits['media'][] = array(
+$wgExtensionCredits['media'][] = [
 	'path' => __FILE__,
 	'name' => 'Mol Handler',
-	'author' => array(
+	'author' => [
 		'Rainer Rillke',
-	),
+	],
 	'version' => '0.1.0',
 	'descriptionmsg' => 'mwe-mh-credits-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MolHandler',
 	'license-name' => 'GPL-2.0+',
-);
+];
 
 /* Configuration */
 $wgMolHandlerDir = __DIR__ . '/';
@@ -41,21 +41,21 @@ $wgMessagesDirs['MolHandler'] = $wgMolHandlerDir . 'i18n';
 
 # Converter. Note that babel is not yet able to convert reactions
 $wgMolConverterPath = '/usr/bin';
-$wgMolConvertCommands = array(
-	'babel' => array(
+$wgMolConvertCommands = [
+	'babel' => [
 		'command' => '$path/babel -i$format $input $output',
-		'supportedFormats' => array( 'mol' ),
+		'supportedFormats' => [ 'mol' ],
 		'memory' => 204800
-	),
-	'indigo' => array(
+	],
+	'indigo' => [
 		'command' => '$path/indigo-depict $input $output',
-		'supportedFormats' => array( 'mol', 'rxn' ),
+		'supportedFormats' => [ 'mol', 'rxn' ],
 		// 200 MiB - indigo-depict required about 40 MiB with all libraries in
 		// tests but sometimes seems to need much more; no errors with 200 MiB
 		// on the test wiki so far; See Bug 67074.
 		'memory' => 204800
-	),
-);
+	],
+];
 $wgMolConverter = 'indigo';
 
 $wgMediaHandlers['chemical/x-mdl-molfile'] = 'MolMediaHandler';

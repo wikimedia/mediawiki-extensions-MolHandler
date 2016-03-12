@@ -136,7 +136,7 @@ abstract class MolHandler extends SvgHandler {
 		if ( $tempFSFile ) {
 			# Clean up temporary file
 			$tempFSFile->purge();
-		} else if ( is_file( $svgPath ) ) {
+		} elseif ( is_file( $svgPath ) ) {
 			if ( filesize( $svgPath ) > 0 ) {
 				$repoStatus = $repo->quickImport( $svgPath, $svgThumbPath );
 				if ( !$repoStatus->isGood() ) {
@@ -189,8 +189,6 @@ abstract class MolHandler extends SvgHandler {
 	 * @return bool|MediaTransformError
 	 */
 	private function rasterizeCTF( $srcPath, $dstPath, $width, $height, $svgPath ) {
-		global $wgMolConverterPath;
-
 		# Create SVG if it does not yet exist, otherwise just modify the $srcPath
 
 		$result = $this->execMolConverter( $svgPath, $srcPath, $width, $height );
@@ -217,27 +215,27 @@ abstract class MolHandler extends SvgHandler {
 		$err = false;
 		$converter = $this->getMolConverter();
 		$retval = '';
-		$limits = array(
+		$limits = [
 				'memory' => $converter['memory']
-		);
+		];
 
 		if ( !file_exists( $svgPath ) ) {
 			// External command
 			$cmd = str_replace(
-				array( '$path/', '$format', '$input', '$output' ),
-				array( $wgMolConverterPath
+				[ '$path/', '$format', '$input', '$output' ],
+				[ $wgMolConverterPath
 					? wfEscapeShellArg( "$wgMolConverterPath/" )
 					: "",
 						wfEscapeShellArg( static::FILE_FORMAT ),
 						wfEscapeShellArg( $srcPath ),
 						wfEscapeShellArg( $svgPath )
-				),
+				],
 				$converter['command']
 			);
 
 			wfProfileIn( 'molconvert' );
 			wfDebug( __METHOD__ . ": $cmd\n" );
-			$err = wfShellExecWithStderr( $cmd, $retval, array(), $limits );
+			$err = wfShellExecWithStderr( $cmd, $retval, [], $limits );
 			wfProfileOut( 'molconvert' );
 		}
 
@@ -278,8 +276,6 @@ abstract class MolHandler extends SvgHandler {
 	 * @return string Serialised metadata
 	 */
 	function getMetadata( $file, $filename ) {
-		global $wgMolConverterPath;
-
 		# As this is the server's local temp directory, it should be okay to assume
 		# we can write into it
 		$svgfilename = $filename . '.svg';

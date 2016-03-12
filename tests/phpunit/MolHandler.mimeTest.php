@@ -8,7 +8,6 @@
  * @author Rillke
  */
 
-
 class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 	/**
 	 * Hook: Runs the tests over the provided files.

@@ -58,9 +58,9 @@ class MolHandlerMime {
 	 * @return bool
 	 */
 	private static function  isChemFileExtension( $extension ) {
-		static $types = array(
+		static $types = [
 			'mol', 'sdf', 'rxn', 'rd', 'rg',
-		);
+		];
 		return in_array( strtolower( $extension ), $types );
 	}
 
@@ -103,22 +103,22 @@ class MolHandlerMime {
 	public static function doGuessChemicalMime( &$head, &$tail, $file ) {
 		# Note that a lot of chemical table files contain embedded molfiles.
 		# Therefore, always check for these container files before checking for molfiles!
-		static $headers = array(
+		static $headers = [
 			'$RXN'                              => 'chemical/x-mdl-rxnfile',
 			'$RDFILE '                          => 'chemical/x-mdl-rdfile',
 			'$MDL'                              => 'chemical/x-mdl-rgfile',
-		);
-		static $tailsRegExps = array(
+		];
+		static $tailsRegExps = [
 			'/\n\s*\$\$\$\$\s*$/'               => 'chemical/x-mdl-sdfile',
 			# MDL-Molfile with all kind of line endings
 			'/\n\s*M  END\s*$/'                 => 'chemical/x-mdl-molfile',
-		);
-		static $headersRegExps = array(
+		];
+		static $headersRegExps = [
 			# MDL-Molfile counts line
 			# #atoms #bond_numbers #atom_lists [obsolete] [999|#propery_lines] V<version>
 			'/\n(\s*\d{1,3}\s+){3}[^\n]*(?:\d+\s+){1,12}V\d{4,5}\n/'
 				=> 'chemical/x-mdl-molfile',
-		);
+		];
 
 		# Compare headers
 		foreach ( $headers as $magic => $candidate ) {
