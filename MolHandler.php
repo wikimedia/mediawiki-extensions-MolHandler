@@ -30,7 +30,7 @@ $wgExtensionCredits['media'][] = [
 		'Rainer Rillke',
 	],
 	'version' => '0.1.0',
-	'descriptionmsg' => 'mwe-mh-credits-desc',
+	'descriptionmsg' => 'molhandler-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:MolHandler',
 	'license-name' => 'GPL-2.0+',
 ];
