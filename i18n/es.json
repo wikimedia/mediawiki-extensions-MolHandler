@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Macofe"
+		]
+	},
+	"molhandler-desc": "Añade soporte para la representación en el servidor de archivos de la tabla química"
+}

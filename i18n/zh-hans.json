@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Liuxinyu970226"
+		]
+	},
+	"molhandler-desc": "为服务器端的化学成分表文件渲染添加支持"
+}
