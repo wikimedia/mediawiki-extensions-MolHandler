@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Verdy p"
 		]
 	},
-	"molhandler-desc": "Ajoute le support pour le rendu côté serveur des fichiers de tableau chimique"
+	"molhandler-desc": "Ajoute la prise en charge du rendu par le serveur des fichiers de tableau chimique"
 }
