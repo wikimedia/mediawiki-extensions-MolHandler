@@ -37,6 +37,10 @@
 			"MolHandlerHooks::onUnitTestsList"
 		]
 	},
+	"MediaHandlers": {
+		"chemical/x-mdl-molfile": "MolMediaHandler",
+		"chemical/x-mdl-rxnfile": "RxnMediaHandler"
+	},
 	"config": {
 		"MolConverterPath": "/usr/bin",
 		"MolConvertCommands": {
@@ -51,11 +55,7 @@
 				"memory": 204800
 			}
 		},
-		"MolConverter": "indigo",
-		"MediaHandlers": {
-			"chemical/x-mdl-molfile": "MolMediaHandler",
-			"chemical/x-mdl-rxnfile": "RxnMediaHandler"
-		}
+		"MolConverter": "indigo"
 	},
 	"manifest_version": 1
 }
