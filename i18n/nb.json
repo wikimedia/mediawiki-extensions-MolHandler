@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"molhandler-desc": "Legger til støtte for tjenertegning av kjemisk tabell-filer"
+}
