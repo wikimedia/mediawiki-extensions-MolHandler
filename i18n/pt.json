@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"molhandler-desc": "Adiciona suporte do lado do servidor para a apresentação de ficheiros de tabelas químicas"
+}
