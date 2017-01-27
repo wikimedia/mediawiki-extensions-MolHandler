@@ -4,7 +4,7 @@
 		"Rainer Rillke"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:MolHandler",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"descriptionmsg": "molhandler-desc",
 	"license-name": "GPL-2.0+",
 	"requires": {
