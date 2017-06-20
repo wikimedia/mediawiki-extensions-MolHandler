@@ -18,7 +18,6 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 	 */
 	private function runTestMime( $files, $shouldEqual ) {
 		foreach ( $files as $filePath ) {
-
 			# Read file contents to memory
 			$handle = fopen( $filePath, 'rb' );
 			if ( !$handle ) {
