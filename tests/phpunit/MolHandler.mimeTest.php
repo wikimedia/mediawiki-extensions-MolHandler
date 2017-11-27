@@ -40,7 +40,7 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 			fclose( $handle );
 
 			# Set up prerequisites
-			$mimeMagic = MimeMagic::singleton();
+			$mimeMagic = \MediaWiki\MediaWikiServices::getInstance()->getMimeAnalyzer();
 			$mimeByExt = 'text/plain';
 			$ext = strtolower( preg_replace( '/.*\.(\w{2,})$/', '\1', $filePath ) );
 
