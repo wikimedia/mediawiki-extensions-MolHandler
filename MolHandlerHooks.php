@@ -2,7 +2,7 @@
 class MolHandlerHooks {
 	/**
 	 * Hook to add unit tests
-	 * @param array $files list of testcases
+	 * @param array &$files list of testcases
 	 * @return bool
 	 */
 	public static function onUnitTestsList( array &$files ) {

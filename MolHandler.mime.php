@@ -28,7 +28,6 @@ class MolHandlerMime {
 	 * Hook: MimeMagicInit.
 	 *
 	 * @param MimeMagic $mimeMagic
-	 * @param object $addToList Callback function
 	 * @return bool Always true
 	 */
 	public static function onMimeMagicInit( $mimeMagic ) {
@@ -84,7 +83,7 @@ class MolHandlerMime {
 	 *
 	 * @param MimeMagic $mimeMagic
 	 * @param string $ext File extension
-	 * @param string $mime In: Previously detected MIME; Out: Improved MIME
+	 * @param string &$mime In: Previously detected MIME; Out: Improved MIME
 	 * @return bool Always true
 	 */
 	public static function onMimeMagicImproveFromExtension( $mimeMagic, $ext, &$mime ) {
@@ -95,8 +94,8 @@ class MolHandlerMime {
 	/**
 	 * Guess chemical MIME types from file content.
 	 *
-	 * @param string $head 1024 bytes of the head
-	 * @param string $tail 1024 bytes of the tail
+	 * @param string &$head 1024 bytes of the head
+	 * @param string &$tail 1024 bytes of the tail
 	 * @param string $file
 	 * @return bool|string Mime type
 	 */
@@ -154,10 +153,10 @@ class MolHandlerMime {
 	 * Hook: MimeMagicGuessFromContent.
 	 *
 	 * @param MimeMagic $mimeMagic
-	 * @param string $head
-	 * @param string $tail
+	 * @param string &$head
+	 * @param string &$tail
 	 * @param string $file
-	 * @param string $mime
+	 * @param string &$mime
 	 * @return bool Always true
 	 */
 	public static function onMimeMagicGuessFromContent(
