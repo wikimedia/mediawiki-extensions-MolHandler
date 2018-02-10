@@ -233,10 +233,8 @@ abstract class MolHandler extends SvgHandler {
 				$converter['command']
 			);
 
-			wfProfileIn( 'molconvert' );
 			wfDebug( __METHOD__ . ": $cmd\n" );
 			$err = wfShellExecWithStderr( $cmd, $retval, [], $limits );
-			wfProfileOut( 'molconvert' );
 		}
 
 		$removed = $this->removeBadFile( $svgPath, $retval );
