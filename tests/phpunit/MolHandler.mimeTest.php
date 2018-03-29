@@ -71,7 +71,7 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 	* @covers MolHandlerMime::doGuessChemicalMime
 	* @covers MolHandlerMime::improveFromExtension
 	* @uses MimeMagic
-	* @medium
+	* @group medium
 	*/
 	function testMimeDetectionByContentAndFileExtension() {
 		$fileDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'files';
