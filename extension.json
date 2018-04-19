@@ -17,7 +17,6 @@
 		]
 	},
 	"AutoloadClasses": {
-		"MolHandlerHooks": "MolHandlerHooks.php",
 		"MolHandlerMime":  "MolHandler.mime.php",
 		"MolHandler":      "MolHandler_body.php",
 		"MolMediaHandler": "MolMediaHandler.php",
@@ -32,9 +31,6 @@
 		],
 		"MimeMagicGuessFromContent": [
 			"MolHandlerMime::onMimeMagicGuessFromContent"
-		],
-		"UnitTestsList": [
-			"MolHandlerHooks::onUnitTestsList"
 		]
 	},
 	"MediaHandlers": {
