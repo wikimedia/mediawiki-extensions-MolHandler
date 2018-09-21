@@ -70,7 +70,7 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 	* @group Multimedia
 	* @covers MolHandlerMime::doGuessChemicalMime
 	* @covers MolHandlerMime::improveFromExtension
-	* @uses MimeMagic
+	* @uses MimeAnalyzer
 	* @group medium
 	*/
 	function testMimeDetectionByContentAndFileExtension() {

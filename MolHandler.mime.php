@@ -66,7 +66,7 @@ class MolHandlerMime {
 	/**
 	 * Looks whether the MIME type could be improved from file extension.
 	 *
-	 * @param MimeMagic $mimeMagic
+	 * @param MimeAnalyzer $mimeMagic
 	 * @param string $ext File extension
 	 * @param string $mime Previously detected MIME
 	 * @return string Improved MIME
@@ -81,7 +81,7 @@ class MolHandlerMime {
 	/**
 	 * Hook: MimeMagicImproveFromExtension.
 	 *
-	 * @param MimeMagic $mimeMagic
+	 * @param MimeAnalyzer $mimeMagic
 	 * @param string $ext File extension
 	 * @param string &$mime In: Previously detected MIME; Out: Improved MIME
 	 * @return bool Always true
@@ -152,7 +152,7 @@ class MolHandlerMime {
 	/**
 	 * Hook: MimeMagicGuessFromContent.
 	 *
-	 * @param MimeMagic $mimeMagic
+	 * @param MimeAnalyzer $mimeMagic
 	 * @param string &$head
 	 * @param string &$tail
 	 * @param string $file
