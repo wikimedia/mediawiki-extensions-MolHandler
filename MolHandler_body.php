@@ -71,9 +71,6 @@ abstract class MolHandler extends SvgHandler {
 		$clientHeight = $params['height'];
 		$physicalWidth = $params['physicalWidth'];
 		$physicalHeight = $params['physicalHeight'];
-		$lang = isset( $params['lang'] )
-			? $params['lang']
-			: $this->getDefaultRenderLanguage( $image );
 
 		if ( $flags & self::TRANSFORM_LATER ) {
 			return new ThumbnailImage( $image, $dstUrl, $dstPath, $params );
@@ -100,13 +97,14 @@ abstract class MolHandler extends SvgHandler {
 		$svgPath = $dstPath . '.svg';
 
 		if ( !wfMkdirParents( dirname( $dstPath ), null, __METHOD__ )
-			|| !wfMkdirParents( dirname( $svgPath ), null, __METHOD__ ) ) {
-				return new MediaTransformError(
-					'thumbnail_error',
-					$clientWidth,
-					$clientHeight,
-					wfMessage( 'thumbnail_dest_directory' )->text()
-				);
+			|| !wfMkdirParents( dirname( $svgPath ), null, __METHOD__ )
+		) {
+			return new MediaTransformError(
+				'thumbnail_error',
+				$clientWidth,
+				$clientHeight,
+				wfMessage( 'thumbnail_dest_directory' )->text()
+			);
 		}
 
 		# Check whether there is already a SVG generated
@@ -151,9 +149,9 @@ abstract class MolHandler extends SvgHandler {
 
 		if ( $status === true ) {
 			return new ThumbnailImage( $image, $dstUrl, $dstPath, $params );
-		} else {
-			return $status; // MediaTransformError
 		}
+
+		return $status; // MediaTransformError
 	}
 
 	/**
@@ -172,7 +170,8 @@ abstract class MolHandler extends SvgHandler {
 	 */
 	public function rasterize( $srcPath, $dstPath, $width, $height, $lang = false ) {
 		$svgPath = $dstPath . '.svg';
-		$status = $this->rasterizeCTF( $srcPath, $dstPath,  $width, $height, $svgPath );
+		$this->rasterizeCTF( $srcPath, $dstPath,  $width, $height, $svgPath );
+
 		if ( file_exists( $svgPath ) && filesize( $svgPath ) > 0 ) {
 			unlink( $svgPath );
 		}
@@ -216,7 +215,7 @@ abstract class MolHandler extends SvgHandler {
 		$converter = $this->getMolConverter();
 		$retval = '';
 		$limits = [
-				'memory' => $converter['memory']
+			'memory' => $converter['memory']
 		];
 
 		if ( !file_exists( $svgPath ) ) {

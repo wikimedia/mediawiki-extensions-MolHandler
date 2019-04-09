@@ -27,7 +27,7 @@ class MolHandlerMime {
 	/**
 	 * Hook: MimeMagicInit.
 	 *
-	 * @param MimeMagic $mimeMagic
+	 * @param MimeAnalyzer $mimeMagic
 	 * @return bool Always true
 	 */
 	public static function onMimeMagicInit( $mimeMagic ) {
