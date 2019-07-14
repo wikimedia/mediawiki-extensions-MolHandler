@@ -64,6 +64,7 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 			}
 		}
 	}
+
 	/**
 	* @group MolHandler
 	* @group MimeTypeDetection
