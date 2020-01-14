@@ -66,14 +66,14 @@ class MolHandlerMimeFunctionsTest extends MediaWikiTestCase {
 	}
 
 	/**
-	* @group MolHandler
-	* @group MimeTypeDetection
-	* @group Multimedia
-	* @covers MolHandlerMime::doGuessChemicalMime
-	* @covers MolHandlerMime::improveFromExtension
-	* @uses MimeAnalyzer
-	* @group medium
-	*/
+	 * @group MolHandler
+	 * @group MimeTypeDetection
+	 * @group Multimedia
+	 * @covers MolHandlerMime::doGuessChemicalMime
+	 * @covers MolHandlerMime::improveFromExtension
+	 * @uses MimeAnalyzer
+	 * @group medium
+	 */
 	function testMimeDetectionByContentAndFileExtension() {
 		$fileDir = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'files';
 		$files = glob( $fileDir . DIRECTORY_SEPARATOR . '*.test.pass.*' );

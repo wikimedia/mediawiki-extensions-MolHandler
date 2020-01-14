@@ -21,10 +21,10 @@
  */
 
 /**
-* Handler for MDL Rxnfiles.
-*
-* @ingroup Media
-*/
+ * Handler for MDL Rxnfiles.
+ *
+ * @ingroup Media
+ */
 class RxnMediaHandler extends MolHandler {
 	const FILE_FORMAT = 'rxn';
 }

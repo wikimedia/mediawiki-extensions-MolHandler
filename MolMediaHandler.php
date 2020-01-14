@@ -21,10 +21,10 @@
  */
 
 /**
-* Handler for MDL Molfiles.
-*
-* @ingroup Media
-*/
+ * Handler for MDL Molfiles.
+ *
+ * @ingroup Media
+ */
 class MolMediaHandler extends MolHandler {
 	const FILE_FORMAT = 'mol';
 }
