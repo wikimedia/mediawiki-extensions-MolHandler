@@ -23,15 +23,9 @@
 		"RxnMediaHandler": "RxnMediaHandler.php"
 	},
 	"Hooks": {
-		"MimeMagicInit": [
-			"MolHandlerMime::onMimeMagicInit"
-		],
-		"MimeMagicImproveFromExtension": [
-			"MolHandlerMime::onMimeMagicImproveFromExtension"
-		],
-		"MimeMagicGuessFromContent": [
-			"MolHandlerMime::onMimeMagicGuessFromContent"
-		]
+		"MimeMagicInit": "MolHandlerMime::onMimeMagicInit",
+		"MimeMagicImproveFromExtension": "MolHandlerMime::onMimeMagicImproveFromExtension",
+		"MimeMagicGuessFromContent": "MolHandlerMime::onMimeMagicGuessFromContent"
 	},
 	"MediaHandlers": {
 		"chemical/x-mdl-molfile": "MolMediaHandler",
