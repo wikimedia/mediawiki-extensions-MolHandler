@@ -25,32 +25,6 @@
 class MolHandlerMime {
 
 	/**
-	 * Hook: MimeMagicInit.
-	 *
-	 * @param MimeAnalyzer $mimeMagic
-	 * @return bool Always true
-	 */
-	public static function onMimeMagicInit( $mimeMagic ) {
-		static $extraInfo =
-			'chemical/x-mdl-molfile [DRAWING]
-			chemical/x-mdl-sdfile [DRAWING]
-			chemical/x-mdl-rxnfile [DRAWING]
-			chemical/x-mdl-rdfile [DRAWING]
-			chemical/x-mdl-rgfile [DRAWING]';
-
-		static $extraTypes =
-			'chemical/x-mdl-molfile mol
-			chemical/x-mdl-sdfile sdf
-			chemical/x-mdl-rxnfile rxn
-			chemical/x-mdl-rdfile rd
-			chemical/x-mdl-rgfile rg';
-
-		$mimeMagic->addExtraInfo( $extraInfo );
-		$mimeMagic->addExtraTypes( $extraTypes );
-		return true;
-	}
-
-	/**
 	 * Determines whether $extension is one that is used for chemical table files.
 	 *
 	 * @param string $extension File extension

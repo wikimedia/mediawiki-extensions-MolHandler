@@ -23,7 +23,6 @@
 		"RxnMediaHandler": "RxnMediaHandler.php"
 	},
 	"Hooks": {
-		"MimeMagicInit": "MolHandlerMime::onMimeMagicInit",
 		"MimeMagicImproveFromExtension": "MolHandlerMime::onMimeMagicImproveFromExtension",
 		"MimeMagicGuessFromContent": "MolHandlerMime::onMimeMagicGuessFromContent"
 	},
