@@ -170,11 +170,12 @@ abstract class MolHandler extends SvgHandler {
 	 */
 	public function rasterize( $srcPath, $dstPath, $width, $height, $lang = false ) {
 		$svgPath = $dstPath . '.svg';
-		$this->rasterizeCTF( $srcPath, $dstPath,  $width, $height, $svgPath );
+		$result = $this->rasterizeCTF( $srcPath, $dstPath,  $width, $height, $svgPath );
 
 		if ( file_exists( $svgPath ) && filesize( $svgPath ) > 0 ) {
 			unlink( $svgPath );
 		}
+		return $result;
 	}
 
 	/**
