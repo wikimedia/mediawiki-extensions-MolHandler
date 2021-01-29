@@ -30,7 +30,7 @@ class MolHandlerMime {
 	 * @param string $extension File extension
 	 * @return bool
 	 */
-	private static function  isChemFileExtension( $extension ) {
+	private static function isChemFileExtension( $extension ) {
 		static $types = [
 			'mol', 'sdf', 'rxn', 'rd', 'rg',
 		];
