@@ -17,8 +17,8 @@
 		]
 	},
 	"AutoloadClasses": {
-		"MolHandlerMime":  "MolHandler.mime.php",
-		"MolHandler":      "MolHandler_body.php",
+		"MolHandlerMime": "MolHandler.mime.php",
+		"MolHandler": "MolHandler_body.php",
 		"MolMediaHandler": "MolMediaHandler.php",
 		"RxnMediaHandler": "RxnMediaHandler.php"
 	},
@@ -35,12 +35,12 @@
 		"MolConvertCommands": {
 			"babel": {
 				"command": "$path/babel -i$format $input $output",
-				"supportedFormats": ["mol"],
+				"supportedFormats": [ "mol" ],
 				"memory": 204800
 			},
 			"indigo": {
 				"command": "$path/indigo-depict $input $output",
-				"supportedFormats": ["mol", "rxn"],
+				"supportedFormats": [ "mol", "rxn" ],
 				"memory": 204800
 			}
 		},
